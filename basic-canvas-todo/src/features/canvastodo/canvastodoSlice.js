@@ -35,7 +35,9 @@ const canvastodoSlice = createSlice({
       const {
         gobalList,
       } = action.payload
-      canvasTodo.todolist.splice(0, gobalList.length, ...gobalList);
+      for ( let index = 0; index < gobalList.length; index++){
+        canvasTodo.todolist.push(gobalList[index]);
+      }
     },
     setCurrentList: (canvasTodo, action) => {
       const {

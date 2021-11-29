@@ -154,11 +154,11 @@ export function CanvasTodo () {
         <button className={styles.button} onClick={addtoList}>  Add ToDo </button>
         <button className={styles.button} onClick={() => toggleImport()}>  Import </button> <br/>
       </div>
-      <div>
+      <div >
         <DragDropContext onDragEnd={onDragEnd}>  
           <Droppable droppableId="droppable" >  
                   {(provided) => (  
-                      <div  
+                      <div  className={styles.taskbackground}
                           {...provided.droppableProps}  
                           ref={provided.innerRef}  
                         >  
@@ -171,7 +171,7 @@ export function CanvasTodo () {
                                       {...provided.dragHandleProps}  
                                     >  
                                     {
-                                    <li key={String(item.id)}> 
+                                    <li key={String(item.id)} className={styles.todolist}> 
                                     <ToDoTask value={item.task} 
                                     onClick={() => removeToDo(item.id)} 
                                     onPress={() => toggleComment(item)}/> </li> }
@@ -185,7 +185,7 @@ export function CanvasTodo () {
         </DragDropContext>
       </div>
       <div>  
-        <label>
+        <label className={styles.totaltask}>
           Total Number of Tasks Uncompleted: {listOfToDo.filter(item => item.done === false).length}
         </label>
       </div>
@@ -229,7 +229,7 @@ export function ToDoTask(props) {
   return (
     <>
 
-      <input type="text" value={props.value}/>
+      <input  type="text" value={props.value}/>
       <button onClick={props.onClick}>Done</button>
       <input type="button" value="Comment" onClick={props.onPress} />
     </>
