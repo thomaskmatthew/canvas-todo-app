@@ -31,14 +31,17 @@ const canvastodoSlice = createSlice({
         task = listTask.id
       }
     },
+    setCurrentGobalList: (canvasTodo, action) => {
+      const {
+        gobalList,
+      } = action.payload
+      canvasTodo.todolist.splice(0, gobalList.length, ...gobalList);
+    },
     setCurrentList: (canvasTodo, action) => {
       const {
         currentList,
       } = action.payload;
-      console.log(currentList);
       if( currentList !== undefined){
-        // canvasTodo.length = 0;                  // Clear contents
-        // canvasTodo.push.apply(canvasTodo, currentList);
         canvasTodo.todolist.splice(0, canvasTodo.todolist.length, ...currentList);
       }
     },
@@ -47,6 +50,7 @@ const canvastodoSlice = createSlice({
         todo,
       } = action.payload;
       canvasTodo.todolist.push(todo);
+      canvasTodo.item = '';
     },
     setItem: (canvasTodo, action) => {
       const {
@@ -78,6 +82,7 @@ export const {
   removeTask,
   editNotes,
   setCurrentList,
+  setCurrentGobalList,
 } = canvastodoSlice.actions;
 
 export default canvastodoSlice;

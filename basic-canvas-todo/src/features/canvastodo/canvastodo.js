@@ -12,9 +12,29 @@ import {
   removeTask,
   editNotes,
   setCurrentList,
+  setCurrentGobalList
 } from './canvastodoSlice.js';
 var taskItem = undefined;
-
+const IMPORTEDTASKS =[
+  {
+    task: 'Stats-380 hw 9', 
+    id: 66023, 
+    done: false, 
+    notes: "study three hours a day"
+  },
+  {
+    task: 'Geol 101 exam 3', 
+    id: 6733, 
+    done: false, 
+    notes: "nothing"
+  },
+  {
+    task: 'human-comp final project', 
+    id: 56022, 
+    done: false, 
+    notes: "think about doing it"
+  }
+];
 
 export function CanvasTodo () {
   const todo = useSelector(selectTask);
@@ -61,6 +81,12 @@ export function CanvasTodo () {
     taskItem = item
     setIsOpen(!isOpen);
   }
+  
+  const addGobalTasks = () => {
+    dispatch(setCurrentGobalList({
+      gobalList: IMPORTEDTASKS,
+    }));
+  };
 
   const toggleImport = () => {
     importSetIsOpen(!importIsOpen);
@@ -79,7 +105,6 @@ export function CanvasTodo () {
       result.source.index,
       result.destination.index
     );
-    console.log(currentTodo);
     dispatch(setCurrentList({
       currentList: currentTodo
     }));
@@ -189,7 +214,7 @@ export function CanvasTodo () {
               <br/>
               <input type="password" placeholder="Password" id="password"/>
               <br/>
-              <button>Import Tasks</button>
+              <button onClick={() => addGobalTasks()}>Import Tasks</button>
             </>
           }
           closeImport={toggleImport}
