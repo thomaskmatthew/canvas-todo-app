@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import canvastodoSlice from '../features/canvastodo/canvastodoSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [canvastodoSlice.name]: canvastodoSlice.reducer,
   },
 });
