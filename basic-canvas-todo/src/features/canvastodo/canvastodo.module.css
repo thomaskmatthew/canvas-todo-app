@@ -3,9 +3,16 @@
   margin: 30px;
   padding-bottom: 30px;
   background-color: rgb(27, 27, 26);
-  
+  border: round;
+
+  font: italic Georgia, serif;
   color: red;
   
+}
+.textboxer {
+  width: 500px;
+  display: inline-block;
+  text-align: center;
 }
 
 .header {
@@ -20,6 +27,7 @@
 .button {
   background-color: #000000; /* Green */
   border: none;
+  border-radius: 12px;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -27,11 +35,22 @@
   display: inline-block;
   font-size: 16px;
   margin: 5px;
+  
 }
+.button:active{
+  background-color:rgb(75, 73, 73);
+}
+.button:hover {
+/*  Making button bigger on hover  */
+  transform: scale(1.1) perspective(1px)
+}
+
+
 
 .taskbar {
   background: #999;
   padding: 10px;
+  margin-bottom: 20px;
   
   
 }
@@ -39,6 +58,7 @@
   /* color: rgba(0 0 255 / 100%); */
   margin: 5px;
   border-left: solid;
+  
   height: 45px;
   width: 200px;
 }

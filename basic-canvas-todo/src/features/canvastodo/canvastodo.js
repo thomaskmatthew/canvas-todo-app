@@ -195,7 +195,7 @@ export function CanvasTodo () {
             <>
               <b>{taskItem.task.replace(/[\u0336]/g, '')}</b>
               <br/>
-              <textarea id="txt" rows="4" cols="150">{taskItem.notes}</textarea>
+              <textarea className={styles.textboxer} id="txt" rows="4" cols="150">{taskItem.notes}</textarea>
               <br/>
               <button onClick={() => changeNotes(taskItem.id, document.getElementById("txt").value)}>Save Task Commment</button>
             </>
